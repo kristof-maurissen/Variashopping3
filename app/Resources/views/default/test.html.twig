@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+
+<div class="container">
+
+
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
+
+{% for shop in shops %}
+
+	<div>
+	<p><h3><a href= {{ shop.affurl }} target='_blank' rel='nofollow'><font face='Calibri' color='blue'> {{ shop.shopname }}</font></a></h3></p>
+	<p>{{ shop.description }}</p>
+	<p><font face='Calibri' color='green'>{{ shop.url}}</font></p>
+	<h6><p>{{ shop.country}}</p></h6>
+	<div class="panel-group" role="tablist">
+  		<div class="panel panel-default">
+    		<div id="collapseListGroupHeading1" class="panel-heading" role="tab">
+      			<h4 class="panel-title">
+        			<a class="collapsed" href="#promoGroup{{ shop.id }}" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseListGroup">
+          			Promo's
+        			</a>
+      			</h4>
+    		</div>
+    		<div id="promoGroup{{ shop.id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading1" aria-expanded='false' style="heigth: 0px;">
+    			<ul class="list-group">
+					<li class="list-group-item">{{ shop.promo1}}</li>
+					<li class="list-group-item">{{ shop.promo2}}</li>
+					<li class="list-group-item">{{ shop.promo3}}</li>
+					<li class="list-group-item">{{ shop.promo4}}</li>
+					<li class="list-group-item">{{ shop.promo5}}</li>
+				</ul>
+      		</div>
+      	</div>		
+    </div>
+    </div>  	
+	
+
+{% endfor %}
+</div>
+<script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
